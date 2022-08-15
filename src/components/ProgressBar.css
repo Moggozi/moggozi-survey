@@ -29,10 +29,12 @@
 
 #status-bar > div {
   /* box-sizing: content-box; */
+  position: relative;
+  left: -8px;
   width: 10%;
-  height: 100%;
+  height: 105%;
   align-items: stretch; 
-  border-radius: 10px;
+  border-radius: 20px;
   /* border: solid #FFCAA1 10px; */
   background-color: #FFCAA1;
 }
