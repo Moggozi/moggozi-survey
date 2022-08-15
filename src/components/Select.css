@@ -22,3 +22,14 @@
   border: solid black 1.5px;
   background-color: #FFFFFF;
 }
+
+.option > input {
+  height: 30px;
+  width: 50%;
+  border-radius: 5px;
+  border: solid black 1.5px;
+}
+
+.option > input:focus {
+  outline: none;
+}
