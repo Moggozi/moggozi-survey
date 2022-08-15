@@ -1,13 +1,16 @@
+import { useState, useEffect } from 'react';
+
 import './ProgressBar.css';
 
 export default function ProgressBar(props) {
   const queryNum = props.queryNum;
   const queryMap = props.queryMap;
 
-  // console.log(queryMap[0]);
-  // console.log(queryNum);
+  const [progress, setProgress] = useState(10);
 
-  console.log(queryMap[queryNum]);
+  useEffect(() => {
+    setProgress(4 + queryMap[queryNum] * 15);
+  }, [queryMap, queryNum]);
 
   return (
     <div id="ProgressBar">
@@ -15,7 +18,7 @@ export default function ProgressBar(props) {
         <p>{ `${queryMap[queryNum]} / 7` }</p>
       </div>
       <div id="status-bar">
-        <div></div>
+        <div style={ {width: `${progress}%`} }></div>
       </div>
     </div>
   )
