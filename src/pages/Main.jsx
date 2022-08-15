@@ -15,7 +15,7 @@ export default function Main() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const [queryNum, setQueryNum] = useState(1);
+  const [queryNum, setQueryNum] = useState(0);
 
   const fetchQuery = async () => {
     try {
@@ -35,7 +35,7 @@ export default function Main() {
     // eslint-disable-next-line
   }, []);
 
-  if (loading) return null;
+  if (loading || query === null) return null;
 
   return (
     <div id="Main">

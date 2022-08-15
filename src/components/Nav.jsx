@@ -10,25 +10,25 @@ export default function Nav(props) {
   const [nextPhrase, setNextPhrase] = useState("다음");
 
   function previous() {
-    if (queryNum <= 1) {
+    if (queryNum <= 0) {
       return null;
     }
     setQueryNum(queryNum - 1);
 
-    if (queryNum - 1 === 1) {
+    if (queryNum - 1 === 0) {
       setBackgroundColor("#D9D9D9");
     }
     setNextPhrase("다음");
   }
 
   function next() {
-    if (queryNum > 8) {
+    if (queryNum > 7) {
       return null;
       // send responce data
     }
     setQueryNum(queryNum + 1);
 
-    if (queryNum + 1 === 9) {
+    if (queryNum + 1 === 8) {
       setNextPhrase("완료");
     }
     setBackgroundColor("#FFCAA1");
