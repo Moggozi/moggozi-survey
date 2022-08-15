@@ -16,7 +16,7 @@ export default function Main() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [queryNum, setQueryNum] = useState(0);
-  const [responce, setResponce] = useState({});
+  const [responce, setResponce] = useState([]);
 
   const [isAnswerd, setAnswer] = useState(false);
 
