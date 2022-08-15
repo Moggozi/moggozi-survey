@@ -14,8 +14,11 @@ export default function Main() {
   const [query, setQuery] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const [queryNum, setQueryNum] = useState(0);
+
+  const queryMap = {
+    0: 1, 1: 2, 2: 3, 3: 4, 4: 4, 5: 4, 6: 5, 7: 6, 8: 7 
+  }
 
   const fetchQuery = async () => {
     try {
@@ -43,8 +46,8 @@ export default function Main() {
         <img alt="logo" src={ Moggozi } height="85px"/>
       </div>
       <div>
-        <ProgressBar />
-        <Query query={ query } queryNum={ queryNum }/>
+        <ProgressBar queryNum={ queryNum } queryMap={ queryMap }/>
+        <Query query={ query } queryNum={ queryNum } queryMap={ queryMap }/>
         <Nav queryNum = { queryNum } setQueryNum = { setQueryNum } />
       </div>
     </div>
