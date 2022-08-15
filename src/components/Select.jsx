@@ -13,7 +13,6 @@ export default function Select(props) {
   const options = useRef();
 
   useEffect(() => {
-    // console.log(currentOption);
     options.current.childNodes.forEach((element) => {
       element.firstChild.style.backgroundColor = "white";
       if (element.firstChild === currentOption) {
