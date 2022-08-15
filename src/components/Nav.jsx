@@ -13,19 +13,25 @@ export default function Nav(props) {
     if (queryNum <= 1) {
       return null;
     }
-    setQueryNum(queryNum-1);
-    if (queryNum-1 === 1) {
+    setQueryNum(queryNum - 1);
+
+    if (queryNum - 1 === 1) {
       setBackgroundColor("#D9D9D9");
     }
+    setNextPhrase("다음");
   }
 
   function next() {
     if (queryNum > 8) {
       return null;
+      // send responce data
     }
-    setQueryNum(queryNum+1);
+    setQueryNum(queryNum + 1);
+
+    if (queryNum + 1 === 9) {
+      setNextPhrase("완료");
+    }
     setBackgroundColor("#FFCAA1");
-    console.log(queryNum);
   }
 
   return (
