@@ -11,7 +11,7 @@
 }
 
 .option:hover {
-  cursor: pointer;
+  cursor: default;
 }
 
 .option > div {
@@ -21,6 +21,10 @@
   border-radius: 50%;
   border: solid black 1.5px;
   background-color: #FFFFFF;
+}
+
+.option > div:hover {
+  cursor: pointer;
 }
 
 .option > input {
