@@ -5,6 +5,8 @@ import './Nav.css';
 export default function Nav(props) {
   var queryNum = props.queryNum;
   const setQueryNum = props.setQueryNum;
+  const isAnswerd = props.isAnswerd;
+  const answer = props.answer;
 
   const [backgroundColor, setBackgroundColor] = useState("#D9D9D9");
   const [nextPhrase, setNextPhrase] = useState("다음");
@@ -22,11 +24,12 @@ export default function Nav(props) {
   }
 
   function next() {
-    if (queryNum > 7) {
+    if (queryNum > 7 || !isAnswerd) {
       return null;
       // send responce data
     }
     setQueryNum(queryNum + 1);
+    answer(false);
 
     if (queryNum + 1 === 8) {
       setNextPhrase("완료");

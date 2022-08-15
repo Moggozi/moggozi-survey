@@ -5,6 +5,7 @@ import Query from '../components/Query';
 import Nav from '../components/Nav';
 
 import api from '../request';
+import { v4 as uuidv4 } from 'uuid';
 
 import Moggozi from '../assets/MGZ.png';
 
@@ -15,6 +16,11 @@ export default function Main() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [queryNum, setQueryNum] = useState(0);
+  const [responce, setResponce] = useState({});
+
+  const [isAnswerd, setAnswer] = useState(false);
+
+  const uid = uuidv4();
 
   const queryMap = {
     0: 1, 1: 2, 2: 3, 3: 4, 4: 4, 5: 4, 6: 5, 7: 6, 8: 7 
@@ -46,9 +52,16 @@ export default function Main() {
         <img alt="logo" src={ Moggozi } height="85px"/>
       </div>
       <div>
-        <ProgressBar queryNum={ queryNum } queryMap={ queryMap }/>
-        <Query query={ query } queryNum={ queryNum } queryMap={ queryMap }/>
-        <Nav queryNum = { queryNum } setQueryNum = { setQueryNum } />
+        <ProgressBar queryNum = { queryNum } queryMap = { queryMap }/>
+        <Query 
+          query = { query } 
+          queryNum={ queryNum } 
+          queryMap = { queryMap }
+          responce = { responce } 
+          setResponce = { setResponce } 
+          answer = { setAnswer }
+        />
+        <Nav queryNum = { queryNum } setQueryNum = { setQueryNum } isAnswerd = { isAnswerd } answer = { setAnswer }/>
       </div>
     </div>
   )
