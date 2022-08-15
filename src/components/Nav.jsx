@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import api from '../request';
+
 import './Nav.css';
 
 export default function Nav(props) {
@@ -9,6 +11,10 @@ export default function Nav(props) {
   const answer = props.answer;
   const submit = props.submit;
   const setSubmit = props.setSubmit;
+
+  const uid = props.uid;
+
+  const responces = props.responces;
 
   const [backgroundColor, setBackgroundColor] = useState("#D9D9D9");
   const [nextPhrase, setNextPhrase] = useState("다음");
@@ -27,10 +33,15 @@ export default function Nav(props) {
 
   function next() {
     if ((queryNum > 7 || !isAnswerd) && queryNum !== 8) {
-      console.log(isAnswerd);
       return null;
     } else if (queryNum === 8) {
-      // send responce data
+      console.log(responces);
+      api.post("/api/responce", {
+        "uid" : uid,
+        "responce" : JSON.stringify(responces)
+      })
+      alert("설문이 제출되었습니다");
+      return null;
     }
     setQueryNum(queryNum + 1);
     answer(false);

@@ -48,9 +48,7 @@ export default function Main() {
     if (loadQuery) fetchQuery();
 
     if (Object.keys(responce).length !== 0) {
-      console.log("submit");
       responces.push(responce);
-      console.log(responces);
     }
     // eslint-disable-next-line
   }, [submit]);
@@ -75,7 +73,7 @@ export default function Main() {
           setResponce = { setResponce } 
           answer = { setAnswer }
         />
-        <Nav 
+        <Nav
           queryNum = { queryNum } 
           setQueryNum = { setQueryNum } 
           isAnswerd = { isAnswerd } 
@@ -83,6 +81,7 @@ export default function Main() {
           responces = { responces }
           submit = { submit }
           setSubmit = { setSubmit }
+          uid = { uid }
         />
       </div>
     </div>

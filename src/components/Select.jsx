@@ -17,7 +17,6 @@ export default function Select(props) {
     options.current.childNodes.forEach((element) => {
       element.firstChild.style.backgroundColor = "white";
       if (element.firstChild === currentOption) {
-        console.log(element.lastChild.innerHTML);
         setCurrentResponse(element.lastChild.innerHTML);
       }
     })
@@ -39,7 +38,6 @@ export default function Select(props) {
   };
 
   function inputHandler(event) {
-    console.log(event.target.value);
     setCurrentOption("string-input");
     setCurrentResponse(event.target.value);
     answer(true);
