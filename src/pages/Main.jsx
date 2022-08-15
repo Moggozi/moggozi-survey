@@ -12,13 +12,18 @@ import Moggozi from '../assets/MGZ.png';
 import './Main.css';
 
 export default function Main() {
+  var loadQuery = true;
   const [query, setQuery] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
   const [queryNum, setQueryNum] = useState(0);
-  const [responce, setResponce] = useState([]);
+
+  const [responce, setResponce] = useState({});
+  const [responces, setResponces] = useState([]);
 
   const [isAnswerd, setAnswer] = useState(false);
+  const [submit, setSubmit] = useState(0);
 
   const uid = uuidv4();
 
@@ -40,11 +45,21 @@ export default function Main() {
   }
 
   useEffect(() => {
-    fetchQuery();
-    // eslint-disable-next-line
-  }, []);
+    if (loadQuery) fetchQuery();
 
-  if (loading || query === null) return null;
+    if (Object.keys(responce).length !== 0) {
+      console.log("submit");
+      responces.push(responce);
+      console.log(responces);
+    }
+    // eslint-disable-next-line
+  }, [submit]);
+
+  if (loading || query === null) {
+    return null;
+  } else if (query !== null) {
+    loadQuery = false;
+  }
 
   return (
     <div id="Main">
@@ -57,11 +72,18 @@ export default function Main() {
           query = { query } 
           queryNum={ queryNum } 
           queryMap = { queryMap }
-          responce = { responce } 
           setResponce = { setResponce } 
           answer = { setAnswer }
         />
-        <Nav queryNum = { queryNum } setQueryNum = { setQueryNum } isAnswerd = { isAnswerd } answer = { setAnswer }/>
+        <Nav 
+          queryNum = { queryNum } 
+          setQueryNum = { setQueryNum } 
+          isAnswerd = { isAnswerd } 
+          answer = { setAnswer }
+          responces = { responces }
+          submit = { submit }
+          setSubmit = { setSubmit }
+        />
       </div>
     </div>
   )

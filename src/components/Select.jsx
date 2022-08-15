@@ -4,18 +4,33 @@ import './Select.css';
 export default function Select(props) {
   const option = JSON.parse(props.option);
   const answer = props.answer;
+  const setResponce = props.setResponce;
+
+  const queryName = props.name;
 
   const [ currentOption, setCurrentOption ] = useState(null);
+  const [ currentResponse, setCurrentResponse ] = useState(null);
   const options = useRef();
 
   useEffect(() => {
+    // console.log(currentOption);
     options.current.childNodes.forEach((element) => {
       element.firstChild.style.backgroundColor = "white";
+      if (element.firstChild === currentOption) {
+        console.log(element.lastChild.innerHTML);
+        setCurrentResponse(element.lastChild.innerHTML);
+      }
     })
     if (currentOption !== null) {
-      currentOption.style.backgroundColor = "#FFCAA1";
+      if (currentOption !== "string-input") {
+        currentOption.style.backgroundColor = "#FFCAA1";
+      }
+      setResponce({
+        "name" : queryName,
+        "response" : currentResponse
+      })
     }
-  }, [currentOption])
+  }, [currentOption, queryName, currentResponse, setCurrentResponse, setResponce])
 
   function selectHandler(event) {
     const target = event.target;
@@ -23,12 +38,19 @@ export default function Select(props) {
     answer(true);
   };
 
+  function inputHandler(event) {
+    console.log(event.target.value);
+    setCurrentOption("string-input");
+    setCurrentResponse(event.target.value);
+    answer(true);
+  }
+
   var select;
 
   if (option === null) {
     select = (
       <div className="option">
-        <input></input>
+        <input onInput={ inputHandler }></input>
       </div>
     )
   } else {
