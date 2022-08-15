@@ -7,7 +7,7 @@ export default function Query(props) {
 
   return (
     <div id="Query">
-      <h3>{query[0].query}</h3>
+      <h3>{ `${props.queryNum}. IT에 얼마나 관심 있나요` }</h3>
       <div className="select">
         <div></div>
         <p></p>
