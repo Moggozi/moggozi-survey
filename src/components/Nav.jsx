@@ -5,7 +5,7 @@ import api from '../request';
 import './Nav.css';
 
 export default function Nav(props) {
-  var queryNum = props.queryNum;
+  const queryNum = props.queryNum;
   const setQueryNum = props.setQueryNum;
   const isAnswerd = props.isAnswerd;
   const answer = props.answer;
@@ -35,7 +35,6 @@ export default function Nav(props) {
     if ((queryNum > 7 || !isAnswerd) && queryNum !== 8) {
       return null;
     } else if (queryNum === 8) {
-      console.log(responces);
       api.post("/api/responce", {
         "uid" : uid,
         "responce" : JSON.stringify(responces)

@@ -3,6 +3,7 @@ import './Select.css';
 
 export default function Select(props) {
   const option = JSON.parse(props.option);
+  const queryNum = props.queryNum;
   const answer = props.answer;
   const setResponce = props.setResponce;
 
@@ -24,11 +25,12 @@ export default function Select(props) {
         currentOption.style.backgroundColor = "#FFCAA1";
       }
       setResponce({
+        "query_id" : queryNum,
         "name" : queryName,
         "response" : currentResponse
       })
     }
-  }, [currentOption, queryName, currentResponse, setCurrentResponse, setResponce])
+  }, [currentOption, queryName, queryNum, currentResponse, setCurrentResponse, setResponce])
 
   function selectHandler(event) {
     const target = event.target;

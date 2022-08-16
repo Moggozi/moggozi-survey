@@ -16,7 +16,13 @@ export default function Query(props) {
   return (
     <div id="Query">
       <h3>{ currnet_query.name }</h3>
-      <Select option={ currnet_query.option } answer={answer} setResponce={setResponce} name={currnet_query.name}/>
+      <Select 
+        option={ currnet_query.option } 
+        queryNum = { queryNum }
+        answer={answer} 
+        setResponce={setResponce} 
+        name={currnet_query.name}
+      />
     </div>
   )
 }
