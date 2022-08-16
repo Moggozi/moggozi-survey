@@ -30,7 +30,7 @@ export default function Select(props) {
         "response" : currentResponse
       })
     }
-  }, [currentOption, queryName, queryNum, currentResponse, setCurrentResponse, setResponce])
+  }, [options, currentOption, queryName, queryNum, currentResponse, setCurrentResponse, setResponce])
 
   function selectHandler(event) {
     const target = event.target;
