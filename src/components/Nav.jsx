@@ -35,6 +35,7 @@ export default function Nav(props) {
     if ((queryNum > 7 || !isAnswerd) && queryNum !== 8) {
       return null;
     } else if (queryNum === 8) {
+      setSubmit(submit + 1);
       api.post("/api/responce", {
         "uid" : uid,
         "responce" : JSON.stringify(responces)
