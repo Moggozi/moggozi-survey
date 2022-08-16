@@ -40,6 +40,7 @@ export default function Nav(props) {
         "responce" : JSON.stringify(responces)
       })
       alert("설문이 제출되었습니다");
+      window.location.reload();
       return null;
     }
     setQueryNum(queryNum + 1);
