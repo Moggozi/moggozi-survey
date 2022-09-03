@@ -15,6 +15,7 @@ export default function Nav(props) {
   const uid = props.uid;
 
   const responces = props.responces;
+  const responce = props.responce;
 
   const [backgroundColor, setBackgroundColor] = useState("#D9D9D9");
   const [nextPhrase, setNextPhrase] = useState("다음");
@@ -38,7 +39,8 @@ export default function Nav(props) {
       setSubmit(submit + 1);
       api.post("/api/responce", {
         "uid" : uid,
-        "responce" : JSON.stringify(responces)
+        "responce" : JSON.stringify(responces),
+        "etc" : responce
       })
       alert("설문이 제출되었습니다");
       window.location.reload();

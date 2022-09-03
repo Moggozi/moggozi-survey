@@ -82,6 +82,7 @@ export default function Main() {
           submit = { submit }
           setSubmit = { setSubmit }
           uid = { uid }
+          responce = { responce }
         />
       </div>
     </div>
